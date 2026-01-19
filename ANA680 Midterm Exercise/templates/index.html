@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car MPG Prediction</title>
+    <style>
+        /* Centers everything on the page */
+        body { 
+            font-family: Arial; 
+            text-align: center; 
+            margin-top: 50px; 
+        }
+
+        /* Container for the form to keep it centered */
+        form { 
+            display: inline-block; 
+            text-align: left; 
+            background: #f4f4f4; 
+            padding: 20px; 
+            border-radius: 8px; 
+        }
+
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 5px; 
+        }
+
+        /* Ensures inputs and button are the exact same width */
+        input, button { 
+            width: 300px; 
+            padding: 12px; 
+            margin-bottom: 15px; 
+            border-radius: 4px; 
+            box-sizing: border-box; /* Includes padding in the width to match sizes exactly */
+            display: block; 
+        }
+
+        input { 
+            border: 1px solid #ccc; 
+        }
+
+        button { 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: bold;
+            margin-bottom: 0px; 
+        }
+
+        button:hover { 
+            background-color: #0056b3; 
+        }
+
+        .result { 
+            margin-top: 25px; 
+            font-weight: bold; 
+            color: #d9534f; 
+            font-size: 1.3em; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Car MPG Prediction Tool</h2>
+    <p>Enter the vehicle details below to estimate City MPG</p>
+
+    <form action="/predict" method="POST">
+        <label for="hp">Horsepower:</label>
+        <input type="number" id="hp" name="f1" placeholder="e.g. 200" step="1" required>
+
+        <label for="inv">Invoice Price ($):</label>
+        <input type="number" id="inv" name="f2" placeholder="e.g. 25000" step="0.01" required>
+
+        <label for="hwy">Highway MPG:</label>
+        <input type="number" id="hwy" name="f3" placeholder="e.g. 30.5" step="0.1" required>
+        
+        <button type="submit">Predict City MPG</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+
+</body>
+</html>
